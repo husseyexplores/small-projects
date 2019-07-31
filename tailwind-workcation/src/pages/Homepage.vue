@@ -4,7 +4,7 @@
   <div class="flex bg-green-100">
     <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
       <div class="xl:max-w-lg xl:ml-auto">
-        <img class="h-10" src="/img/logo.svg" alt="logo">
+        <img class="h-12" src="/img/workcation-dark.svg" alt="logo">
         <img class="mt-4 rounded-lg shadow-xl sm:mt-8 sm:h-72 sm:w-full sm:object-cover sm:object-center lg:hidden"
           src="/img/demo.jpg" alt="img">
         <h1 class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:text-4xl sm:mt-8 lg:mt-4 lg:text-3xl xl:text-4xl">
@@ -17,7 +17,7 @@
           even when you are not on vacation.
         </p>
         <div class="mt-4 sm:mt-6">
-          <a class="btn btn-primary sm:text-base shadow-lg" href="#">Book your escape</a>
+          <a class="btn btn-primary sm:text-base shadow-lg" href="/listings">Book your escape</a>
           <a class="btn btn-secondary ml-2" href="#">Learn more</a>
         </div>
       </div>
@@ -39,8 +39,6 @@
           <DestinationCard :destination="destination"/>
         </div>
       </div>
-
-
     </div>
   </div>
 
@@ -48,12 +46,14 @@
 </template>
 
 <script>
-import DestinationCard from './components/DestinationCard.vue'
+import VLink from '../components/VLink.vue'
+import DestinationCard from '../components/DestinationCard.vue'
 
 export default {
   name: 'app',
   components: {
-    DestinationCard
+    DestinationCard,
+    VLink,
   },
   data() {
     return {

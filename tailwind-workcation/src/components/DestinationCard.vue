@@ -14,7 +14,7 @@
 <script>
 export default {
   props: {
-    destination: String
+    destination: Object
   }
 }
 </script>
