@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Homepage from './pages/Homepage.vue'
 import Listings from './pages/Listings.vue'
 import NotFound from './pages/404.vue'
-import '@/assets/css/tailwind.css'
+// import '@/assets/css/tailwind.css'
 
 Vue.config.productionTip = false
 
@@ -19,7 +19,7 @@ const app = new Vue({
   computed: {
     ViewComponent() {
       return routes[this.currentRoute] || NotFound
-    }
+    },
   },
   render(h) {
     return h(this.ViewComponent)
