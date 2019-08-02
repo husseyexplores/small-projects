@@ -21,7 +21,13 @@
         />
       </div>
       <button
-        class="inline-flex bg-gray-700 rounded-lg shadow pl-3 pr-4 ml-4 items-center hover:bg-gray-600 focus:outline-none focus:shadow-outline"
+        @click="toggle"
+        :class="{
+          'bg-gray-600': isOpen,
+          'bg-gray-700': !isOpen,
+        }"
+        type="button"
+        class="inline-flex hover:bg-gray-600 rounded-lg pl-3 pr-4 ml-4 items-center focus:outline-none focus:shadow-outline"
       >
         <svg
           class="h-6 w-6 fill-current text-gray-500"
@@ -37,87 +43,157 @@
     </div>
 
     <!-- expanded filters -->
-    <form>
+    <form v-show="isOpen">
       <!-- /start/ top level div -->
 
-      <fieldset>
+      <fieldset class="px-4 py-4 border-t border-gray-900">
         <!-- bed and bath -->
-        <div>
-          <label>
-            <span>Bedrooms</span>
-            <select class="form-select"
+        <div class="flex -mx-2">
+          <label class="block w-1/2 px-2">
+            <span class="text-sm font-semibold text-gray-500">Bedrooms</span>
+            <select
+              class="mt-1 form-select block w-full shadow text-white focus:bg-gray-600"
               ><option>4</option></select
             >
           </label>
-          <label>
-            <span>Bathrooms</span>
-            <select class="form-select"
+          <label class="block w-1/2 px-2">
+            <span class="text-sm font-semibold text-gray-500">Bathrooms</span>
+            <select
+              class="mt-1 form-select block w-full shadow text-white focus:bg-gray-600"
               ><option>2</option></select
             >
           </label>
         </div>
 
         <!-- price rannge -->
-        <div>
+        <div class="mt-4">
           <label>
-            <span>Price Range</span>
-            <select class="form-select"
+            <span class="text-sm font-semibold text-gray-500">Price Range</span>
+            <select
+              class="mt-1 form-select block w-full shadow text-white focus:bg-gray-600"
               ><option>Up to $2,000 /wk</option></select
             >
           </label>
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend>Property Type</legend>
-        <label>
-          House
-          <input type="radio" name="propertyType" value="house" />
+      <fieldset class="px-4 py-4 border-t border-gray-900">
+        <span class="block text-sm font-semibold text-gray-500"
+          >Property Type</span
+        >
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-radio bg-gray-900 focus:bg-gray-700"
+            type="radio"
+            name="propertyType"
+            value="house"
+          />
+          <span class="ml-2 text-white">House</span>
         </label>
-        <label>
-          Apartment
-          <input type="radio" name="propertyType" value="apartment" />
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-radio bg-gray-900 focus:bg-gray-700"
+            type="radio"
+            name="propertyType"
+            value="apartment"
+          />
+          <span class="ml-2 text-white">Apartment</span>
         </label>
-        <label>
-          Loft
-          <input type="radio" name="propertyType" value="loft" />
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-radio bg-gray-900 focus:bg-gray-700"
+            type="radio"
+            name="propertyType"
+            value="loft"
+          />
+          <span class="ml-2 text-white">Loft</span>
         </label>
-        <label>
-          Townhouse
-          <input type="radio" name="propertyType" value="townhouse" />
-        </label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Amenities</legend>
-        <label>
-          Balcony
-          <input type="checkbox" name="amenities[]" value="balcony" />
-        </label>
-        <label>
-          air conditioning
-          <input type="checkbox" name="amenities[]" value="air conditioning" />
-        </label>
-        <label>
-          Pool
-          <input type="checkbox" name="amenities[]" value="pool" checked />
-        </label>
-        <label>
-          Beach
-          <input type="checkbox" name="amenities[]" value="beach" />
-        </label>
-        <label>
-          Pet friendly
-          <input type="checkbox" name="amenities[]" value="pet friendly" />
-        </label>
-        <label>
-          Kid friendly
-          <input type="checkbox" name="amenities[]" value="kid friendly" />
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-radio bg-gray-900 focus:bg-gray-700"
+            type="radio"
+            name="propertyType"
+            value="townhouse"
+          />
+          <span class="ml-2 text-white">Townhouse</span>
         </label>
       </fieldset>
 
-      <div>
-        <button type="submit">Update results</button>
+      <fieldset class="px-4 py-4 border-t border-gray-900">
+        <span class="block text-sm font-semibold text-gray-500">Amenities</span>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="balcony"
+          />
+          <span class="ml-2 text-white">Balcony</span>
+        </label>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="pool"
+            checked
+          />
+          <span class="ml-2 text-white">Pool</span>
+        </label>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="beach"
+          />
+          <span class="ml-2 text-white">Beach</span>
+        </label>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="pet friendly"
+          />
+          <span class="ml-2 text-white">Pet friendly</span>
+        </label>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="kid friendly"
+          />
+          <span class="ml-2 text-white">Kid friendly</span>
+        </label>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="parking"
+          />
+          <span class="ml-2 text-white">Parking</span>
+        </label>
+        <label class="mt-3 flex items-center">
+          <input
+            class="form-checkbox bg-gray-900 focus:bg-gray-700"
+            type="checkbox"
+            name="amenities[]"
+            value="air conditioning"
+          />
+          <span class="ml-2 text-white">Air conditioning</span>
+        </label>
+      </fieldset>
+
+      <div class="bg-gray-900 px-4 py-4">
+        <button
+          class="block w-full bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg"
+          type="submit"
+        >
+          Update results
+        </button>
       </div>
 
       <!-- /end/   top level div -->
