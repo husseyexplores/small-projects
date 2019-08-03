@@ -6,6 +6,9 @@ module.exports = {
         'brand-blue-light': '#5eb3e1',
         'brand-blue-dark': '#1475aa',
       },
+      padding: {
+        '5/6': '83.3333333%',
+      },
       spacing: {
         '72': '18rem',
       },

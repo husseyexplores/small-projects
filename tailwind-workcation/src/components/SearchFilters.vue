@@ -1,7 +1,7 @@
 <template>
   <section class="bg-gray-800">
     <div class="flex justify-between px-4 py-3 ">
-      <div class="relative">
+      <div class="relative w-full max-w-xs">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg
             viewBox="0 0 24 24"
@@ -15,7 +15,7 @@
           </svg>
         </div>
         <input
-          class="bg-gray-900 w-full text-white rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:bg-gray-200 focus:text-gray-900"
+          class="block bg-gray-900 w-full text-white rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:bg-gray-200 focus:text-gray-900"
           type="text"
           placeholder="Search by keywords"
         />
@@ -27,7 +27,7 @@
           'bg-gray-700': !isOpen,
         }"
         type="button"
-        class="inline-flex hover:bg-gray-600 rounded-lg pl-3 pr-4 ml-4 items-center focus:outline-none focus:shadow-outline"
+        class="ml-4 inline-flex hover:bg-gray-600 rounded-lg pl-3 pr-4 items-center focus:outline-none focus:shadow-outline"
       >
         <svg
           class="h-6 w-6 fill-current text-gray-500"
@@ -46,9 +46,9 @@
     <form v-show="isOpen">
       <!-- /start/ top level div -->
 
-      <fieldset class="px-4 py-4 border-t border-gray-900">
+      <div class="sm:flex px-4 py-4 border-t border-gray-900">
         <!-- bed and bath -->
-        <div class="flex -mx-2">
+        <div class="flex -mx-2 sm:w-1/2">
           <label class="block w-1/2 px-2">
             <span class="text-sm font-semibold text-gray-500">Bedrooms</span>
             <select
@@ -66,7 +66,7 @@
         </div>
 
         <!-- price rannge -->
-        <div class="mt-4">
+        <div class="mt-4 sm:mt-0 sm:ml-4 sm:w-1/2">
           <label>
             <span class="text-sm font-semibold text-gray-500">Price Range</span>
             <select
@@ -75,121 +75,125 @@
             >
           </label>
         </div>
-      </fieldset>
+      </div>
 
-      <fieldset class="px-4 py-4 border-t border-gray-900">
+      <div class="px-4 py-4 border-t border-gray-900">
         <span class="block text-sm font-semibold text-gray-500"
           >Property Type</span
         >
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-radio bg-gray-900 focus:bg-gray-700"
-            type="radio"
-            name="propertyType"
-            value="house"
-          />
-          <span class="ml-2 text-white">House</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-radio bg-gray-900 focus:bg-gray-700"
-            type="radio"
-            name="propertyType"
-            value="apartment"
-          />
-          <span class="ml-2 text-white">Apartment</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-radio bg-gray-900 focus:bg-gray-700"
-            type="radio"
-            name="propertyType"
-            value="loft"
-          />
-          <span class="ml-2 text-white">Loft</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-radio bg-gray-900 focus:bg-gray-700"
-            type="radio"
-            name="propertyType"
-            value="townhouse"
-          />
-          <span class="ml-2 text-white">Townhouse</span>
-        </label>
-      </fieldset>
+        <div class="sm:flex">
+          <label class="mt-3 sm:w-1/4 flex items-center">
+            <input
+              class="form-radio flex-none bg-gray-900 focus:bg-gray-700"
+              type="radio"
+              name="propertyType"
+              value="house"
+            />
+            <span class="ml-2 text-white">House</span>
+          </label>
+          <label class="mt-3 sm:w-1/4 flex items-center">
+            <input
+              class="form-radio flex-none bg-gray-900 focus:bg-gray-700"
+              type="radio"
+              name="propertyType"
+              value="apartment"
+            />
+            <span class="ml-2 text-white">Apartment</span>
+          </label>
+          <label class="mt-3 sm:w-1/4 flex items-center">
+            <input
+              class="form-radio flex-none bg-gray-900 focus:bg-gray-700"
+              type="radio"
+              name="propertyType"
+              value="loft"
+            />
+            <span class="ml-2 text-white">Loft</span>
+          </label>
+          <label class="mt-3 sm:w-1/4 flex items-center">
+            <input
+              class="form-radio flex-none bg-gray-900 focus:bg-gray-700"
+              type="radio"
+              name="propertyType"
+              value="townhouse"
+            />
+            <span class="ml-2 text-white">Townhouse</span>
+          </label>
+        </div>
+      </div>
 
-      <fieldset class="px-4 py-4 border-t border-gray-900">
+      <div class="px-4 py-4 border-t border-gray-900">
         <span class="block text-sm font-semibold text-gray-500">Amenities</span>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="balcony"
-          />
-          <span class="ml-2 text-white">Balcony</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="pool"
-            checked
-          />
-          <span class="ml-2 text-white">Pool</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="beach"
-          />
-          <span class="ml-2 text-white">Beach</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="pet friendly"
-          />
-          <span class="ml-2 text-white">Pet friendly</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="kid friendly"
-          />
-          <span class="ml-2 text-white">Kid friendly</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="parking"
-          />
-          <span class="ml-2 text-white">Parking</span>
-        </label>
-        <label class="mt-3 flex items-center">
-          <input
-            class="form-checkbox bg-gray-900 focus:bg-gray-700"
-            type="checkbox"
-            name="amenities[]"
-            value="air conditioning"
-          />
-          <span class="ml-2 text-white">Air conditioning</span>
-        </label>
-      </fieldset>
+        <div class="sm:flex sm:flex-wrap">
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="balcony"
+            />
+            <span class="ml-2 text-white">Balcony</span>
+          </label>
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="pool"
+              checked
+            />
+            <span class="ml-2 text-white">Pool</span>
+          </label>
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="beach"
+            />
+            <span class="ml-2 text-white">Beach</span>
+          </label>
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="pet friendly"
+            />
+            <span class="ml-2 text-white">Pet friendly</span>
+          </label>
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="kid friendly"
+            />
+            <span class="ml-2 text-white">Kid friendly</span>
+          </label>
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="parking"
+            />
+            <span class="ml-2 text-white">Parking</span>
+          </label>
+          <label class="mt-3 flex items-center sm:w-1/4">
+            <input
+              class="form-checkbox flex-none bg-gray-900 focus:bg-gray-700"
+              type="checkbox"
+              name="amenities[]"
+              value="air conditioning"
+            />
+            <span class="ml-2 text-white">Air conditioning</span>
+          </label>
+        </div>
+      </div>
 
-      <div class="bg-gray-900 px-4 py-4">
+      <div class="bg-gray-900 px-4 py-4 sm:text-right">
         <button
-          class="block w-full bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg"
+          class="block w-full sm:w-auto sm:inline-block bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg"
           type="submit"
         >
           Update results
