@@ -32,7 +32,7 @@
       </div>
       <div class="flex sm:hidden">
         <button
-          @click="toggle"
+          @click="toggleMobileNav"
           type="button"
           class="px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white"
         >
@@ -63,7 +63,6 @@
       :class="{ hidden: !isOpen, block: isOpen }"
     >
       <!-- Search Input -->
-      <!-- <div class=""> -->
       <div class="hidden xl:block ml-4 relative w-full max-w-xs">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg
@@ -78,12 +77,11 @@
           </svg>
         </div>
         <input
-          class="block bg-gray-200 w-full border border-transparent text-gray-900 rounded-lg pl-10 pr-4 py-2 focus:border-gray-300 focus:bg-white"
+          class="block bg-gray-200 w-full border border-transparent text-gray-900 rounded-lg pl-10 pr-4 py-2 focus:border-gray-300 focus:bg-white focus:outline-none"
           type="text"
           placeholder="Search by keywords"
         />
       </div>
-      <!-- </div> -->
 
       <div class="sm:flex sm:items-center">
         <!-- Nav links -->
@@ -92,32 +90,32 @@
         >
           <a
             href="#"
-            class="block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 focus:bg-gray-800 sm:text-sm sm:px-2 xl:text-gray-900 xl:hover:bg-gray-200"
+            class="block px-3 py-1 rounded font-semibold text-white hover:bg-gray-700 focus:bg-gray-700 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200 xl:focus:bg-gray-200 focus:outline-none"
             >List your property</a
           >
           <a
             href="#"
-            class="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 focus:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200"
+            class="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-700 focus:bg-gray-700 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200 xl:focus:bg-gray-200 focus:outline-none"
             >Trips</a
           >
           <a
             href="#"
-            class="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 focus:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200"
+            class="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-700 focus:bg-gray-700 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200 xl:focus:bg-gray-200 focus:outline-none"
             >Messages</a
           >
         </div>
         <!-- Image -->
-        <div class="px-5 py-5 sm:py-2 sm:px-0 sm:ml-4">
-          <div class="flex items-center">
+        <div class="relative px-5 py-5 sm:py-2 sm:px-0 sm:ml-4">
+          <div class="flex items-center sm:hidden">
             <img
-              class="h-10 w-10 sm:h-8 sm:w-8 object-cover rounded-full border-2 border-gray-600 xl:border-gray-400"
+              class="h-10 w-10 object-cover rounded-full border-2 border-gray-600"
               src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80"
               alt=""
             />
-            <span class="ml-4 text-gray-200 font-semibold sm:hidden"
-              >Isla Schoger</span
-            >
+            <span class="ml-4 text-gray-200 font-semibold">Isla Schoger</span>
           </div>
+
+          <!-- mobile nav -->
           <div class="mt-5 sm:hidden">
             <a href="#" class="block text-gray-400 hover:text-white"
               >Account settings</a
@@ -129,6 +127,47 @@
               >Sign out</a
             >
           </div>
+
+          <!-- Dropdown nav for sm & larger screens -->
+          <Dropdown>
+            <template #trigger="{ hasFocus, isOpen }">
+              <span
+                :class="[
+                  hasFocus || isOpen
+                    ? 'border-white xl:border-indigo-500'
+                    : 'border-gray-600 xl:border-gray-300',
+                ]"
+                class="block h-8 w-8 overflow-hidden rounded-full border-2"
+              >
+                <img
+                  class="h-full w-full object-cover"
+                  src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80"
+                  alt=""
+                />
+              </span>
+            </template>
+            <template #dropdown>
+              <div
+                class="mt-3 bg-white rounded-lg w-48 py-2 shadow-xl xl:border"
+              >
+                <a
+                  href="#"
+                  class="block text-gray-800 hover:text-white px-4 py-2 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:text-white"
+                  >Account settings</a
+                >
+                <a
+                  href="#"
+                  class="block text-gray-800 hover:text-white px-4 py-2 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:text-white"
+                  >Support</a
+                >
+                <a
+                  href="#"
+                  class="block text-gray-800 hover:text-white px-4 py-2 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:text-white"
+                  >Sign out</a
+                >
+              </div>
+            </template>
+          </Dropdown>
         </div>
       </div>
     </nav>
@@ -137,11 +176,13 @@
 
 <script>
 import VLink from '../components/VLink.vue'
+import Dropdown from '../components/Dropdown.vue'
 
 export default {
   props: [],
   components: {
     VLink,
+    Dropdown,
   },
   data() {
     return {
@@ -149,7 +190,7 @@ export default {
     }
   },
   methods: {
-    toggle() {
+    toggleMobileNav() {
       this.isOpen = !this.isOpen
     },
   },

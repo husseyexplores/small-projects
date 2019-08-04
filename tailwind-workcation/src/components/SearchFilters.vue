@@ -44,7 +44,7 @@
 
     <!-- expanded filters -->
     <form
-      v-show="isOpen"
+      :class="{ hidden: !isOpen, block: isOpen }"
       class="xl:flex xl:flex-col xl:justify-between xl:h-full"
     >
       <div class="lg:flex xl:block xl:overflow-y-auto">
@@ -223,7 +223,7 @@ export default {
   props: [],
   data() {
     return {
-      isOpen: true,
+      isOpen: false,
     }
   },
   methods: {
