@@ -1,5 +1,3 @@
-# All Things HTML/CSS
+# Small projects
 
-Why? Because it's the foundation!
-
-This repo contains some practice projects that I work(ed) on to improve HTML/CSS/SASS skills.
+Think of them like codepen projects.

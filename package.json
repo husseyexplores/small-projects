@@ -1,0 +1,25 @@
+{
+  "name": "small-projects",
+  "version": "1.0.0",
+  "description": "Why? Because it's the foundation!",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.4"
+  },
+  "scripts": {
+    "parcel": "parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/husseyexplores/small-projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/husseyexplores/small-projects/issues"
+  },
+  "homepage": "https://github.com/husseyexplores/small-projects#readme"
+}
